@@ -1,0 +1,40 @@
+If the numbers to are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
+NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
+
+## THE CODE CAN BE DONE USING DICTIONARIES AND MAPS IN PYTHON BUT I AM NOT WELL VERSED WITH THAT.
+
+The logic for the above code is as follows:-
+
+1. A function can be created which returns the sum of numbers from 1-99, we can manually add the lengths from 1-9,10-19 and 20,30,40,50..,90 numbers as 
+
+# 1-9 lengths
+len_ones = [3,3,5,4,4,3,5,5,4]
+# 10-19 lengths
+len_teens = [3,6,6,8,8,7,7,9,8,8]
+# 20,30,40,50,60,70,80,90 lengths
+len_tens = [6,6,5,5,5,7,6,6]
+
+for summing numbers from 1-9 simply sum(len_ones)
+for summing numbers from 10-19 simply sum(len_teens)
+for summing numbers from 20-99 sum(len_tens)*10 + sum(len_ones)*8
+
+2. A second function is created to find from 100-999 
+
+# 1-9 lengths
+len_ones = [3,3,5,4,4,3,5,5,4]
+# hundred
+len_hundred = 7
+# AND
+len_and = 3
+
+# for sum of 100,200,300..,900
+sum(len_ones)*100 + len_hundred * 9
+
+# for sum from 101-999
+sum((len_ones + len_hundred))*100 + len_and *99 *9
+
+3. A third function is created for calculating for 1000
+
+len_thousand = 11
+sum(all the above functions' val with len_thousand)
